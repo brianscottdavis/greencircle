@@ -126,6 +126,10 @@ export function MarketingHeader() {
                     </button>
                   </div>
                   <div className="mt-6 flex flex-col gap-4">
+                    <div className="flex flex-wrap items-center gap-2">
+                      <span className="text-sm font-medium text-emerald-700">{t("language")}</span>
+                      <LocaleSwitcher />
+                    </div>
                     {navLinks.map((link) => (
                       <Link
                         key={link.href}

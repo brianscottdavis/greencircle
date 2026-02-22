@@ -4,6 +4,7 @@ import { Link } from "~/i18n/navigation";
 import { usePathname } from "next/navigation";
 import type { Session } from "next-auth";
 import { ROLES } from "~/lib/auth/roles";
+import { LocaleSwitcher } from "~/components/LocaleSwitcher";
 
 const residentNav = [
   { href: "/dashboard", label: "Dashboard" },
@@ -116,8 +117,9 @@ export function AppShell({
               </span>
             </Link>
           </div>
-          <div className="ml-auto flex items-center gap-4">
-            <span className="text-sm text-emerald-800">
+          <div className="ml-auto flex flex-wrap items-center justify-end gap-2 sm:gap-4">
+            <LocaleSwitcher />
+            <span className="truncate text-sm text-emerald-800 max-sm:max-w-20">
               {user.name ?? user.email}
             </span>
             <Link
