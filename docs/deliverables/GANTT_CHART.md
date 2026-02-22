@@ -3,6 +3,8 @@
 **Duration:** 6 weeks (adjust for term length)  
 **Team:** 3 students — Lewis builds web prototype (Cursor); B & C do design thinking
 
+**PDF export:** Run `node scripts/gantt-to-pdf.mjs` to generate `GANTT_CHART.pdf` with the Mermaid chart rendered. Or open `GANTT_CHART.html` in a browser and use File → Print → Save as PDF.
+
 ---
 
 ## Mermaid Gantt Chart

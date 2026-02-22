@@ -15,6 +15,8 @@ This folder contains documentation assets for the 2026 Term 1 UX Project.
 | [PROJECT_DEVELOPMENT_CHRONICLE.md](./PROJECT_DEVELOPMENT_CHRONICLE.md) | Steps taken to create these deliverables (from chat history) |
 | [PROJECT_PLAN.md](./PROJECT_PLAN.md) | Project plan with design thinking tasks and student allocation |
 | [GANTT_CHART.md](./GANTT_CHART.md) | Gantt chart, week-by-week allocation, task checklists |
+| [GANTT_CHART.pdf](./GANTT_CHART.pdf) | PDF export with rendered Mermaid chart |
+| [GANTT_CHART.html](./GANTT_CHART.html) | HTML version for browser print-to-PDF |
 | [FEEDBACK_TEMPLATE.md](./FEEDBACK_TEMPLATE.md) | Template for student feedback → Lewis's actions (via Cursor) |
 
 ## Spec Source

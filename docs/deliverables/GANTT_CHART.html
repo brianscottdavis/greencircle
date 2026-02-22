@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GreenCircle — Gantt Chart & Task Allocation</title>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <style>
+    body { font-family: system-ui, -apple-system, sans-serif; max-width: 900px; margin: 2rem auto; padding: 0 1.5rem; color: #1a1a1a; }
+    h1 { font-size: 1.5rem; border-bottom: 2px solid #16a34a; padding-bottom: 0.5rem; }
+    h2 { font-size: 1.2rem; margin-top: 1.5rem; }
+    h3 { font-size: 1rem; margin-top: 1rem; }
+    p { line-height: 1.5; }
+    table { border-collapse: collapse; width: 100%; margin: 1rem 0; font-size: 0.9rem; }
+    th, td { border: 1px solid #ccc; padding: 0.5rem; text-align: left; }
+    th { background: #f0fdf4; }
+    ul { padding-left: 1.5rem; }
+    li { margin: 0.25rem 0; }
+    .mermaid { background: #fafafa; padding: 1rem; border-radius: 8px; margin: 1.5rem 0; }
+    @media print { body { margin: 0; padding: 1rem; } .mermaid { page-break-inside: avoid; } }
+  </style>
+</head>
+<body>
+  <h1>GreenCircle — Gantt Chart & Task Allocation</h1>
+  <p><strong>Duration:</strong> 6 weeks (adjust for term length)</p>
+  <p><strong>Team:</strong> 3 students — Lewis builds web prototype (Cursor); B & C do design thinking</p>
+
+  <h2>Mermaid Gantt Chart</h2>
+  <div class="mermaid">
+gantt
+    title GreenCircle Project Timeline
+    dateFormat  YYYY-MM-DD
+    axisFormat  %b %d
+
+    section Lewis (Web Prototype)
+    T1: Scaffold                     :a1, 2026-03-02, 5d
+    T2: Core features                :a2, after a1, 10d
+    T3: Admin & charts               :a3, after a2, 5d
+    T4: i18n & polish                :a4, after a3, 5d
+    T5: Feedback integration         :a5, after c4, 5d
+    T6: Documentation & deploy       :a6, after a5, 3d
+
+    section Student B (Research & Design Thinking)
+    Research plan                    :b1, 2026-03-02, 3d
+    Community interviews             :b2, after b1, 5d
+    Personas & empathy maps          :b3, after b2, 4d
+    Problem statement                :b4, after b3, 2d
+    User journey mapping             :b5, 2026-03-02, 3d
+    Low-fi wireframes                :b6, after b5, 5d
+    Design notes                     :b7, after b6, 3d
+    Reverse Brief draft              :b8, after b4, 5d
+    Reverse Brief final              :b9, after b8, 3d
+
+    section Student C (Evaluation & Presentation)
+    Usability test plan              :c1, after a3, 2d
+    Usability testing                :c2, after c1, 5d
+    Accessibility audit              :c3, after c2, 3d
+    Success criteria mapping         :c4, after c3, 2d
+    Presentation draft               :c5, 2026-03-09, 5d
+    Presentation final               :c6, after c4, 4d
+  </div>
+
+  <h2>Week-by-Week Allocation</h2>
+  <table>
+    <thead><tr><th>Week</th><th>Lewis</th><th>Student B</th><th>Student C</th></tr></thead>
+    <tbody>
+      <tr><td><strong>1</strong></td><td>T1: Scaffold</td><td>Research plan, interviews, journey mapping</td><td>—</td></tr>
+      <tr><td><strong>2</strong></td><td>T2: Core features</td><td>Personas, empathy maps, wireframes; hand off to Lewis</td><td>Draft presentation outline</td></tr>
+      <tr><td><strong>3</strong></td><td>T2: Core features</td><td>Problem statement, Reverse Brief draft</td><td>Usability test plan</td></tr>
+      <tr><td><strong>4</strong></td><td>T3: Admin & charts</td><td>Reverse Brief draft, design notes</td><td>Run usability tests (Lewis's prototype)</td></tr>
+      <tr><td><strong>5</strong></td><td>T4: i18n & polish</td><td>Reverse Brief final</td><td>Test report, accessibility audit, success criteria</td></tr>
+      <tr><td><strong>6</strong></td><td>T5: Feedback integration, T6: Deploy</td><td>Review & support</td><td>Presentation final</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Task Checklist by Student</h2>
+  <h3>Lewis</h3>
+  <ul>
+    <li>T1: Scaffold (T3 stack, Prisma, NextAuth, routes)</li>
+    <li>T2: Core features (dashboard, bookings, reports, challenges)</li>
+    <li>T3: Admin & charts (dashboard, user management)</li>
+    <li>T4: i18n & polish (locales, UI refinements)</li>
+    <li>T5: Apply feedback from B & C</li>
+    <li>T6: Documentation & deploy</li>
+    <li>Receive personas, journey maps, wireframes from B by Week 2</li>
+    <li>Receive usability report and audit from C by Week 5</li>
+  </ul>
+
+  <h3>Student B</h3>
+  <ul>
+    <li>Research plan, 3–5 interview notes, 2–3 persona cards</li>
+    <li>Empathy maps, problem statement</li>
+    <li>User journey maps (report, join challenge, admin)</li>
+    <li>Low-fidelity wireframes (5+ screens)</li>
+    <li>Design notes: navigation, accessibility</li>
+    <li>Reverse Brief (Word) — all sections</li>
+    <li>Share personas, journey maps, wireframes with Lewis by Week 2</li>
+  </ul>
+
+  <h3>Student C</h3>
+  <ul>
+    <li>Usability test plan, 2–3 usability test sessions</li>
+    <li>Usability test report, accessibility audit</li>
+    <li>Success criteria checklist (all 5 items)</li>
+    <li>Presentation (PowerPoint) — all slides</li>
+    <li>Share test report and audit with Lewis by Week 5</li>
+  </ul>
+
+  <h2>Handoff Schedule</h2>
+  <table>
+    <thead><tr><th>From</th><th>To</th><th>What</th><th>When</th></tr></thead>
+    <tbody>
+      <tr><td>Student B</td><td>Lewis</td><td>Personas, journey maps, wireframes</td><td>Week 2</td></tr>
+      <tr><td>Lewis</td><td>Student C</td><td>Web prototype URL</td><td>Week 4</td></tr>
+      <tr><td>Student C</td><td>Lewis</td><td>Usability report, accessibility audit</td><td>Week 5</td></tr>
+      <tr><td>All</td><td>—</td><td>Reverse Brief, Presentation</td><td>Week 6</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Success Criteria Cross-Check</h2>
+  <table>
+    <thead><tr><th>Criterion</th><th>Evidence Source</th></tr></thead>
+    <tbody>
+      <tr><td>Targets local community members</td><td>Reverse Brief §2, Personas (B)</td></tr>
+      <tr><td>UX design principles applied</td><td>Design notes, wireframes (B)</td></tr>
+      <tr><td>User-centred design thinking</td><td>Research, usability report (B, C)</td></tr>
+      <tr><td>Logical, accessible, realistic</td><td>Usability report, accessibility audit (C)</td></tr>
+      <tr><td>Computing Technology links</td><td>Presentation, Reverse Brief</td></tr>
+    </tbody>
+  </table>
+
+  <script>
+    mermaid.initialize({ startOnLoad: true, theme: 'neutral' });
+  </script>
+</body>
+</html>
