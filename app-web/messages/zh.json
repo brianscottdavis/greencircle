@@ -1,0 +1,126 @@
+{
+  "common": {
+    "signIn": "登录",
+    "register": "注册",
+    "menu": "菜单",
+    "greenCircle": "GreenCircle",
+    "green": "Green",
+    "circle": "Circle"
+  },
+  "home": {
+    "tagline": "社区垃圾与可持续发展",
+    "description": "了解、监控和改善您当地社区的废物管理。预约收运、参与挑战并跟踪您的影响。",
+    "goToDashboard": "前往仪表板",
+    "howItWorks": "工作原理",
+    "howItWorksDesc": "从收集时间表到社区挑战，一站式满足您的所有需求。",
+    "collectionGuidance": "收集指导",
+    "collectionGuidanceDesc": "查看即将到来的收集、定制说明和可下载指南，避免污染。",
+    "bookTrackServices": "预约和跟踪服务",
+    "bookTrackServicesDesc": "申请大件收运、报告漏收服务，并通过服务证明照片跟踪状态更新。",
+    "communityChallenges": "社区挑战",
+    "communityChallengesDesc": "参与“无塑周”等挑战，记录进度，查看您对社区目标的贡献。",
+    "readyToStart": "准备开始了吗？",
+    "readyToStartDesc": "创建账户以访问您的家庭仪表板和当地服务。",
+    "createAccount": "创建账户"
+  },
+  "nav": {
+    "about": "关于",
+    "guides": "指南",
+    "challenges": "挑战"
+  },
+  "metadata": {
+    "title": "GreenCircle — 社区垃圾与可持续发展",
+    "description": "了解、监控和改善您当地社区的废物管理。"
+  },
+  "guides": {
+    "title": "分类指南",
+    "description": "快速参考什么东西放哪里。正确分类以避免污染罚款。",
+    "backToHome": "返回首页",
+    "items": {
+      "generalWaste": {
+        "title": "一般废物",
+        "description": "放入红色盖垃圾桶的物品。无回收物、无食物残渣、无危险物品。"
+      },
+      "recycling": {
+        "title": "回收",
+        "description": "干净的纸张、纸板、塑料瓶、玻璃、钢材、铝材。冲洗并压扁。"
+      },
+      "greenWaste": {
+        "title": "绿色废物",
+        "description": "花园修剪物、树叶、小树枝。无塑料袋或泥土。"
+      },
+      "foodScraps": {
+        "title": "食物残渣",
+        "description": "可堆肥有机垃圾。使用议会批准的衬垫或报纸。"
+      },
+      "bulkyItems": {
+        "title": "大件物品",
+        "description": "家具、床垫、白色家电。预约收运或送至垃圾场。"
+      },
+      "hazardousWaste": {
+        "title": "有害废物",
+        "description": "电池、化学品、油漆、杀虫剂、荧光灯泡。切勿放入路边垃圾桶。请使用议会投放点或有害废物收运服务。"
+      },
+      "eWaste": {
+        "title": "电子废物",
+        "description": "手机、电脑、电视、电缆、小电器。送至电子废物投放点或预约收运。数据将在设施内清除。"
+      },
+      "textiles": {
+        "title": "纺织品",
+        "description": "衣物、毛巾、床单、鞋子。可用则捐赠，或放入慈善回收箱。不收潮湿或受污染物品。"
+      }
+    }
+  },
+  "about": {
+    "title": "关于 GreenCircle",
+    "para1": "GreenCircle 帮助当地社区居民了解、监控和改善废物管理实践。我们结合教育内容、游戏化参与和可操作的工作流程，服务于居民和议会管理员。",
+    "para2": "该平台支持预约大件收运、报告污染或漏收服务、参加社区挑战，以及通过当地公告保持知情，甚至在连接有限的情况下也能使用。",
+    "backToHome": "返回首页"
+  },
+  "login": {
+    "prompt": "请登录以继续",
+    "email": "电子邮件",
+    "password": "密码",
+    "placeholderEmail": "you@example.com",
+    "logIn": "登录",
+    "loggingIn": "登录中…",
+    "backToHome": "← 返回首页",
+    "errorCredentials": "电子邮件或密码错误。请重试。",
+    "errorAccessDenied": "访问被拒绝。请联系支持。",
+    "errorVerification": "验证失败。请重试。",
+    "errorConfig": "身份验证配置错误。请联系支持。",
+    "errorDefault": "身份验证失败。请检查您的凭据。",
+    "errorUnexpected": "发生意外错误。请重试。"
+  },
+  "register": {
+    "title": "创建账户",
+    "subtitle": "输入您的详细信息以加入社区。",
+    "nameOptional": "姓名（可选）",
+    "email": "电子邮件",
+    "password": "密码",
+    "confirmPassword": "确认密码",
+    "createAccount": "创建账户",
+    "creatingAccount": "正在创建账户…",
+    "signIn": "登录",
+    "backToHome": "← 返回首页",
+    "alreadyHaveAccount": "已有账户？",
+    "placeholderName": "您的姓名",
+    "placeholderEmail": "you@example.com",
+    "placeholderPassword": "至少8个字符",
+    "placeholderConfirm": "重复您的密码",
+    "emailExists": "此电子邮件已注册账户。",
+    "accountCreatedSignIn": "账户已创建。请登录。"
+  },
+  "signout": {
+    "signingOut": "正在退出登录…"
+  },
+  "challenges": {
+    "title": "社区挑战",
+    "description": "参与社区挑战，记录您的进度，为社区目标做出贡献。",
+    "loading": "加载挑战中…",
+    "noChallenges": "暂无活跃挑战。请稍后再来。",
+    "joinDefault": "参加并赚取积分。",
+    "signInToJoin": "登录以参与挑战",
+    "backToHome": "返回首页"
+  }
+}

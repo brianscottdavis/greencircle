@@ -1,0 +1,126 @@
+{
+  "common": {
+    "signIn": "Iniciar sesión",
+    "register": "Registrarse",
+    "menu": "Menú",
+    "greenCircle": "GreenCircle",
+    "green": "Green",
+    "circle": "Circle"
+  },
+  "home": {
+    "tagline": "Residuos comunitarios y sostenibilidad",
+    "description": "Comprenda, supervise y mejore la gestión de residuos en su comunidad local. Reserve recogidas, únase a desafíos y rastree su impacto.",
+    "goToDashboard": "Ir al panel",
+    "howItWorks": "Cómo funciona",
+    "howItWorksDesc": "Desde horarios de recogida hasta desafíos comunitarios, todo lo que necesita en un solo lugar.",
+    "collectionGuidance": "Guía de recogida",
+    "collectionGuidanceDesc": "Vea sus próximas recogidas, instrucciones personalizadas y guías descargables para evitar la contaminación.",
+    "bookTrackServices": "Reservar y rastrear servicios",
+    "bookTrackServicesDesc": "Solicite recogidas voluminosas, informe servicios perdidos y rastree actualizaciones con fotos de prueba de servicio.",
+    "communityChallenges": "Desafíos comunitarios",
+    "communityChallengesDesc": "Únase a desafíos como \"Semana sin plástico\", registre su progreso y vea su contribución a los objetivos del barrio.",
+    "readyToStart": "¿Listo para comenzar?",
+    "readyToStartDesc": "Cree una cuenta para acceder a su panel de hogar y servicios locales.",
+    "createAccount": "Crear cuenta"
+  },
+  "nav": {
+    "about": "Nosotros",
+    "guides": "Guías",
+    "challenges": "Desafíos"
+  },
+  "metadata": {
+    "title": "GreenCircle — Residuos comunitarios y sostenibilidad",
+    "description": "Comprenda, supervise y mejore la gestión de residuos en su comunidad local."
+  },
+  "guides": {
+    "title": "Guías de clasificación",
+    "description": "Referencia rápida de qué va dónde. Evite multas por contaminación clasificando correctamente.",
+    "backToHome": "Volver al inicio",
+    "items": {
+      "generalWaste": {
+        "title": "Residuos generales",
+        "description": "Lo que va en el contenedor de tapa roja. Sin reciclables, sin restos de comida, sin objetos peligrosos."
+      },
+      "recycling": {
+        "title": "Reciclaje",
+        "description": "Papel limpio, cartón, botellas de plástico, vidrio, acero, aluminio. Enjuague y aplaste."
+      },
+      "greenWaste": {
+        "title": "Residuos verdes",
+        "description": "Recortes de jardín, hojas, ramas pequeñas. Sin bolsas de plástico ni tierra."
+      },
+      "foodScraps": {
+        "title": "Restos de comida",
+        "description": "Orgánicos compostables. Use forros aprobados por el ayuntamiento o periódico."
+      },
+      "bulkyItems": {
+        "title": "Objetos voluminosos",
+        "description": "Muebles, colchones, electrodomésticos. Reserve una recogida o lleve al vertedero."
+      },
+      "hazardousWaste": {
+        "title": "Residuos peligrosos",
+        "description": "Pilas, productos químicos, pintura, pesticidas, bombillas fluorescentes. Nunca en contenedores de calle. Use puntos de entrega del ayuntamiento o recogida de residuos peligrosos."
+      },
+      "eWaste": {
+        "title": "Residuos electrónicos",
+        "description": "Teléfonos, ordenadores, televisores, cables, pequeños electrodomésticos. Lleve a punto de entrega de e-waste o reserve una recogida. Los datos se borran en las instalaciones."
+      },
+      "textiles": {
+        "title": "Textiles",
+        "description": "Ropa, toallas, sábanas, zapatos. Done si están en buen estado o use contenedores de caridad. No artículos húmedos o contaminados."
+      }
+    }
+  },
+  "about": {
+    "title": "Sobre GreenCircle",
+    "para1": "GreenCircle ayuda a los miembros de la comunidad local a comprender, supervisar y mejorar las prácticas de gestión de residuos. Combinamos contenido educativo, participación gamificada y flujos de trabajo accionables para residentes y administradores del ayuntamiento.",
+    "para2": "La plataforma permite reservar recogidas voluminosas, informar contaminación o servicios perdidos, unirse a desafíos comunitarios y mantenerse informado con anuncios locales, incluso con conectividad limitada.",
+    "backToHome": "Volver al inicio"
+  },
+  "login": {
+    "prompt": "Inicie sesión para continuar",
+    "email": "Correo electrónico",
+    "password": "Contraseña",
+    "placeholderEmail": "usted@ejemplo.com",
+    "logIn": "Iniciar sesión",
+    "loggingIn": "Iniciando sesión…",
+    "backToHome": "← Volver al inicio",
+    "errorCredentials": "Correo o contraseña incorrectos. Por favor, inténtelo de nuevo.",
+    "errorAccessDenied": "Acceso denegado. Póngase en contacto con soporte.",
+    "errorVerification": "Error de verificación. Por favor, inténtelo de nuevo.",
+    "errorConfig": "Error de configuración de autenticación. Póngase en contacto con soporte.",
+    "errorDefault": "Error de autenticación. Verifique sus credenciales.",
+    "errorUnexpected": "Error inesperado. Por favor, inténtelo de nuevo."
+  },
+  "register": {
+    "title": "Crear cuenta",
+    "subtitle": "Introduzca sus datos para unirse a su comunidad.",
+    "nameOptional": "Nombre (opcional)",
+    "email": "Correo electrónico",
+    "password": "Contraseña",
+    "confirmPassword": "Confirmar contraseña",
+    "createAccount": "Crear cuenta",
+    "creatingAccount": "Creando cuenta…",
+    "signIn": "Iniciar sesión",
+    "backToHome": "← Volver al inicio",
+    "alreadyHaveAccount": "¿Ya tiene una cuenta?",
+    "placeholderName": "Su nombre",
+    "placeholderEmail": "usted@ejemplo.com",
+    "placeholderPassword": "Al menos 8 caracteres",
+    "placeholderConfirm": "Repita su contraseña",
+    "emailExists": "Ya existe una cuenta con este correo electrónico.",
+    "accountCreatedSignIn": "Cuenta creada. Por favor, inicie sesión."
+  },
+  "signout": {
+    "signingOut": "Cerrando sesión…"
+  },
+  "challenges": {
+    "title": "Desafíos comunitarios",
+    "description": "Únase a desafíos del vecindario, registre su progreso y contribuya a los objetivos comunitarios.",
+    "loading": "Cargando desafíos…",
+    "noChallenges": "Aún no hay desafíos activos. Vuelva pronto.",
+    "joinDefault": "Únase y gane puntos.",
+    "signInToJoin": "Iniciar sesión para unirse a desafíos",
+    "backToHome": "Volver al inicio"
+  }
+}

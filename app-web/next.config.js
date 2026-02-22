@@ -5,8 +5,10 @@
 import "./src/env.js";
 
 import { withSerwist } from "@serwist/turbopack";
+import createNextIntlPlugin from "next-intl/plugin";
 
 /** @type {import("next").NextConfig} */
 const config = {};
 
-export default withSerwist(config);
+const withNextIntl = createNextIntlPlugin();
+export default withNextIntl(withSerwist(config));

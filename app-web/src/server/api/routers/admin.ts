@@ -26,6 +26,45 @@ export const adminRouter = createTRPCRouter({
     });
   }),
 
+  updateUser: adminProcedure
+    .input(
+      z.object({
+        id: z.string(),
+        name: z.string().optional(),
+        email: z.string().email().optional().nullable(),
+        role: z.enum(["resident", "crew", "ambassador", "admin"]).optional(),
+      })
+    )
+    .mutation(async ({ ctx, input }) => {
+      const { id, ...data } = input;
+      const update: { name?: string; email?: string | null; role?: string } = {};
+      if (data.name !== undefined) update.name = data.name;
+      if (data.email !== undefined) update.email = data.email;
+      if (data.role !== undefined) update.role = data.role;
+
+      if (update.email !== undefined) {
+        const existing = await ctx.db.user.findFirst({
+          where: { email: update.email, id: { not: id } },
+        });
+        if (existing) throw new Error("Email already in use");
+      }
+
+      return ctx.db.user.update({
+        where: { id },
+        data: update,
+      });
+    }),
+
+  deleteUser: adminProcedure
+    .input(z.object({ id: z.string() }))
+    .mutation(async ({ ctx, input }) => {
+      if (input.id === ctx.session.user.id) {
+        throw new Error("You cannot delete your own account");
+      }
+      await ctx.db.user.delete({ where: { id: input.id } });
+      return { deleted: true };
+    }),
+
   listAnnouncements: adminProcedure.query(async ({ ctx }) => {
     return ctx.db.announcement.findMany({
       include: { author: { select: { name: true, email: true } } },
@@ -117,4 +156,38 @@ export const adminRouter = createTRPCRouter({
         data: { status: input.status },
       });
     }),
+
+  dashboardStats: adminProcedure.query(async ({ ctx }) => {
+    const [serviceRequestsByType, serviceRequestsByStatus, reportsByType, reportsByStatus, jobsByStatus] =
+      await Promise.all([
+        ctx.db.serviceRequest.groupBy({
+          by: ["requestType"],
+          _count: { id: true },
+        }),
+        ctx.db.serviceRequest.groupBy({
+          by: ["status"],
+          _count: { id: true },
+        }),
+        ctx.db.report.groupBy({
+          by: ["reportType"],
+          _count: { id: true },
+        }),
+        ctx.db.report.groupBy({
+          by: ["status"],
+          _count: { id: true },
+        }),
+        ctx.db.job.groupBy({
+          by: ["status"],
+          _count: { id: true },
+        }),
+      ]);
+
+    return {
+      serviceRequestsByType: serviceRequestsByType.map((r) => ({ name: r.requestType.replace(/([A-Z])/g, " $1").trim(), count: r._count.id })),
+      serviceRequestsByStatus: serviceRequestsByStatus.map((r) => ({ name: r.status, count: r._count.id })),
+      reportsByType: reportsByType.map((r) => ({ name: r.reportType.replace(/([A-Z])/g, " $1").trim(), count: r._count.id })),
+      reportsByStatus: reportsByStatus.map((r) => ({ name: r.status, count: r._count.id })),
+      jobsByStatus: jobsByStatus.map((r) => ({ name: r.status, count: r._count.id })),
+    };
+  }),
 });

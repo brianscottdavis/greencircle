@@ -43,4 +43,24 @@ export const serviceRequestRouter = createTRPCRouter({
         },
       });
     }),
+
+  delete: protectedProcedure
+    .input(z.object({ id: z.string() }))
+    .mutation(async ({ ctx, input }) => {
+      const existing = await ctx.db.serviceRequest.findFirst({
+        where: {
+          id: input.id,
+          createdById: ctx.session.user.id,
+        },
+        include: { job: true },
+      });
+      if (!existing) {
+        throw new Error("Request not found or you cannot delete it");
+      }
+      if (existing.job) {
+        await ctx.db.job.delete({ where: { id: existing.job.id } });
+      }
+      await ctx.db.serviceRequest.delete({ where: { id: input.id } });
+      return { deleted: true };
+    }),
 });

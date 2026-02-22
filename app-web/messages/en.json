@@ -1,0 +1,130 @@
+{
+  "common": {
+    "signIn": "Sign in",
+    "signOut": "Sign out",
+    "register": "Register",
+    "menu": "Menu",
+    "greenCircle": "GreenCircle",
+    "green": "Green",
+    "circle": "Circle"
+  },
+  "home": {
+    "tagline": "Community Waste & Sustainability",
+    "description": "Understand, monitor, and improve waste management in your local community. Book pickups, join challenges, and track your impact.",
+    "goToDashboard": "Go to Dashboard",
+    "howItWorks": "How it works",
+    "howItWorksDesc": "From collection schedules to community challenges, everything you need in one place.",
+    "collectionGuidance": "Collection Guidance",
+    "collectionGuidanceDesc": "See your upcoming collections, tailored instructions, and downloadable guides to avoid contamination.",
+    "bookTrackServices": "Book & Track Services",
+    "bookTrackServicesDesc": "Request bulky pickups, report missed services, and track status updates with proof-of-service photos.",
+    "communityChallenges": "Community Challenges",
+    "communityChallengesDesc": "Join challenges like \"Plastic-Free Week,\" log progress, and see your contribution to neighbourhood goals.",
+    "readyToStart": "Ready to get started?",
+    "readyToStartDesc": "Create an account to access your household dashboard and local services.",
+    "createAccount": "Create account"
+  },
+  "nav": {
+    "about": "About",
+    "guides": "Guides",
+    "challenges": "Challenges"
+  },
+  "metadata": {
+    "title": "GreenCircle — Community Waste & Sustainability",
+    "description": "Understand, monitor, and improve waste management in your local community."
+  },
+  "guides": {
+    "title": "Sorting guides",
+    "description": "Quick reference for what goes where. Avoid contamination fines by sorting correctly.",
+    "backToHome": "Back to home",
+    "items": {
+      "generalWaste": {
+        "title": "General waste",
+        "description": "What goes in your red lid bin. No recyclables, no food scraps, no hazardous items."
+      },
+      "recycling": {
+        "title": "Recycling",
+        "description": "Clean paper, cardboard, plastic bottles, glass, steel, aluminium. Rinse and flatten."
+      },
+      "greenWaste": {
+        "title": "Green waste",
+        "description": "Garden clippings, leaves, small branches. No plastic bags or soil."
+      },
+      "foodScraps": {
+        "title": "Food scraps",
+        "description": "Compostable organics. Use council-approved caddy liners or newspaper."
+      },
+      "bulkyItems": {
+        "title": "Bulky items",
+        "description": "Furniture, mattresses, whitegoods. Book a collection or take to the tip."
+      },
+      "hazardousWaste": {
+        "title": "Hazardous waste",
+        "description": "Batteries, chemicals, paint, pesticides, fluorescent bulbs. Never in kerbside bins. Use council drop-off or hazardous waste collection."
+      },
+      "eWaste": {
+        "title": "E-waste",
+        "description": "Phones, computers, TVs, cables, small appliances. Take to e-waste drop-off or book a collection. Data wiped at facilities."
+      },
+      "textiles": {
+        "title": "Textiles",
+        "description": "Clothing, towels, sheets, shoes. Donate if usable, or use charity bins. No wet or contaminated items."
+      }
+    }
+  },
+  "about": {
+    "title": "About GreenCircle",
+    "para1": "GreenCircle helps local community members understand, monitor, and improve waste management practices. We blend educational content, gamified participation, and actionable workflows for residents and council administrators.",
+    "para2": "The platform supports booking bulky pickups, reporting contamination or missed services, joining community challenges, and staying informed with local announcements—even with limited connectivity.",
+    "backToHome": "Back to home"
+  },
+  "login": {
+    "prompt": "Please log in to continue",
+    "email": "Email",
+    "password": "Password",
+    "placeholderEmail": "you@example.com",
+    "logIn": "Log in",
+    "loggingIn": "Logging in…",
+    "backToHome": "← Back to home",
+    "errorCredentials": "Invalid email or password. Please try again.",
+    "errorAccessDenied": "Access denied. Please contact support.",
+    "errorVerification": "Verification failed. Please try again.",
+    "errorConfig": "Authentication configuration error. Please contact support.",
+    "errorDefault": "Authentication failed. Please check your credentials.",
+    "errorUnexpected": "Unexpected error. Please try again."
+  },
+  "register": {
+    "title": "Create account",
+    "subtitle": "Enter your details to join your community.",
+    "nameOptional": "Name (optional)",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm password",
+    "createAccount": "Create account",
+    "creatingAccount": "Creating account…",
+    "signIn": "Sign in",
+    "backToHome": "← Back to home",
+    "alreadyHaveAccount": "Already have an account?",
+    "placeholderName": "Your name",
+    "placeholderEmail": "you@example.com",
+    "placeholderPassword": "At least 8 characters",
+    "placeholderConfirm": "Repeat your password",
+    "emailExists": "An account with this email already exists.",
+    "accountCreatedSignIn": "Account created. Please sign in."
+  },
+  "signout": {
+    "signingOut": "Signing you out…"
+  },
+  "challenges": {
+    "title": "Community challenges",
+    "description": "Join neighbourhood challenges, log your progress, and contribute to community goals.",
+    "loading": "Loading challenges…",
+    "noChallenges": "No active challenges yet. Check back soon.",
+    "joinDefault": "Join and earn points.",
+    "signInToJoin": "Sign in to join challenges",
+    "backToHome": "Back to home",
+    "join": "Join",
+    "joined": "Joined",
+    "myChallenges": "My Challenges"
+  }
+}

@@ -28,11 +28,11 @@ Set in Vercel dashboard (Settings → Environment Variables):
 
 | Variable | Required | Description |
 |----------|----------|-------------|
-| DATABASE_URL | Yes | PostgreSQL connection string |
-| AUTH_SECRET | Yes | NextAuth secret |
-| AUTH_GOOGLE_ID | Optional | OAuth |
-| AUTH_GOOGLE_SECRET | Optional | OAuth |
-| NEXTAUTH_URL | Yes (prod) | e.g. https://yourapp.vercel.app |
+| DATABASE_URL | Yes | PostgreSQL connection string (from Neon integration) |
+| AUTH_SECRET | Yes | NextAuth secret ✓ already set |
+| NEXTAUTH_URL | Optional | Auto-set by Vercel; override if needed |
+
+**Add database (Neon):** Vercel Dashboard → Project → Storage tab → Add Database → Neon. Connect to the project; it provisions Postgres and injects env vars. Ensure `DATABASE_URL` is set (Neon may add `POSTGRES_PRISMA_URL` — use that value for `DATABASE_URL` if so).
 
 ## Build settings
 

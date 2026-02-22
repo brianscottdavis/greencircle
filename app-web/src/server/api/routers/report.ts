@@ -43,4 +43,20 @@ export const reportRouter = createTRPCRouter({
         },
       });
     }),
+
+  delete: protectedProcedure
+    .input(z.object({ id: z.string() }))
+    .mutation(async ({ ctx, input }) => {
+      const existing = await ctx.db.report.findFirst({
+        where: {
+          id: input.id,
+          createdById: ctx.session.user.id,
+        },
+      });
+      if (!existing) {
+        throw new Error("Report not found or you cannot delete it");
+      }
+      await ctx.db.report.delete({ where: { id: input.id } });
+      return { deleted: true };
+    }),
 });

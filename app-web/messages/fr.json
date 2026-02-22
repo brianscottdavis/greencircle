@@ -1,0 +1,126 @@
+{
+  "common": {
+    "signIn": "Se connecter",
+    "register": "S'inscrire",
+    "menu": "Menu",
+    "greenCircle": "GreenCircle",
+    "green": "Green",
+    "circle": "Circle"
+  },
+  "home": {
+    "tagline": "Déchets communautaires et durabilité",
+    "description": "Comprenez, surveillez et améliorez la gestion des déchets dans votre communauté locale. Réservez des collectes, rejoignez des défis et suivez votre impact.",
+    "goToDashboard": "Aller au tableau de bord",
+    "howItWorks": "Comment ça marche",
+    "howItWorksDesc": "Des calendriers de collecte aux défis communautaires, tout ce dont vous avez besoin en un seul endroit.",
+    "collectionGuidance": "Guide de collecte",
+    "collectionGuidanceDesc": "Consultez vos prochaines collectes, les instructions personnalisées et les guides téléchargeables pour éviter la contamination.",
+    "bookTrackServices": "Réserver et suivre les services",
+    "bookTrackServicesDesc": "Demandez des enlèvements encombrants, signalez les services manqués et suivez les mises à jour avec des photos de preuve de service.",
+    "communityChallenges": "Défis communautaires",
+    "communityChallengesDesc": "Rejoignez des défis comme « La Semaine sans plastique », enregistrez vos progrès et voyez votre contribution aux objectifs du quartier.",
+    "readyToStart": "Prêt à commencer ?",
+    "readyToStartDesc": "Créez un compte pour accéder à votre tableau de bord personnel et aux services locaux.",
+    "createAccount": "Créer un compte"
+  },
+  "nav": {
+    "about": "À propos",
+    "guides": "Guides",
+    "challenges": "Défis"
+  },
+  "metadata": {
+    "title": "GreenCircle — Déchets communautaires et durabilité",
+    "description": "Comprenez, surveillez et améliorez la gestion des déchets dans votre communauté locale."
+  },
+  "guides": {
+    "title": "Guides de tri",
+    "description": "Référence rapide pour savoir où va quoi. Évitez les amendes de contamination en triant correctement.",
+    "backToHome": "Retour à l'accueil",
+    "items": {
+      "generalWaste": {
+        "title": "Déchets généraux",
+        "description": "Ce qui va dans votre bac à couvercle rouge. Pas de recyclables, pas de déchets alimentaires, pas d'objets dangereux."
+      },
+      "recycling": {
+        "title": "Recyclage",
+        "description": "Papier propre, carton, bouteilles en plastique, verre, acier, aluminium. Rincez et aplatissez."
+      },
+      "greenWaste": {
+        "title": "Déchets verts",
+        "description": "Tonte de gazon, feuilles, petites branches. Pas de sacs en plastique ni de terre."
+      },
+      "foodScraps": {
+        "title": "Restes alimentaires",
+        "description": "Organiques compostables. Utilisez des sacs approuvés par la mairie ou du journal."
+      },
+      "bulkyItems": {
+        "title": "Encombrants",
+        "description": "Meubles, matelas, appareils électroménagers. Réservez une collecte ou apportez à la déchetterie."
+      },
+      "hazardousWaste": {
+        "title": "Déchets dangereux",
+        "description": "Piles, produits chimiques, peinture, pesticides, ampoules fluorescentes. Jamais dans les bacs de rue. Utilisez les points de dépôt municipaux ou la collecte des déchets dangereux."
+      },
+      "eWaste": {
+        "title": "Déchets électroniques",
+        "description": "Téléphones, ordinateurs, téléviseurs, câbles, petits appareils. Apportez en déchetterie DEEE ou réservez une collecte. Les données sont effacées sur site."
+      },
+      "textiles": {
+        "title": "Textiles",
+        "description": "Vêtements, serviettes, draps, chaussures. Donnez si réutilisables, ou utilisez les conteneurs de charité. Pas d'articles mouillés ou contaminés."
+      }
+    }
+  },
+  "about": {
+    "title": "À propos de GreenCircle",
+    "para1": "GreenCircle aide les membres de la communauté locale à comprendre, surveiller et améliorer les pratiques de gestion des déchets. Nous combinons contenu éducatif, participation gamifiée et flux de travail actionnables pour les résidents et les administrateurs municipaux.",
+    "para2": "La plateforme permet de réserver des enlèvements encombrants, de signaler la contamination ou les services manqués, de rejoindre des défis communautaires et de rester informé grâce aux annonces locales, même avec une connexion limitée.",
+    "backToHome": "Retour à l'accueil"
+  },
+  "login": {
+    "prompt": "Veuillez vous connecter pour continuer",
+    "email": "E-mail",
+    "password": "Mot de passe",
+    "placeholderEmail": "vous@exemple.com",
+    "logIn": "Se connecter",
+    "loggingIn": "Connexion…",
+    "backToHome": "← Retour à l'accueil",
+    "errorCredentials": "E-mail ou mot de passe incorrect. Veuillez réessayer.",
+    "errorAccessDenied": "Accès refusé. Veuillez contacter le support.",
+    "errorVerification": "La vérification a échoué. Veuillez réessayer.",
+    "errorConfig": "Erreur de configuration d'authentification. Veuillez contacter le support.",
+    "errorDefault": "Échec de l'authentification. Vérifiez vos identifiants.",
+    "errorUnexpected": "Erreur inattendue. Veuillez réessayer."
+  },
+  "register": {
+    "title": "Créer un compte",
+    "subtitle": "Entrez vos informations pour rejoindre votre communauté.",
+    "nameOptional": "Nom (facultatif)",
+    "email": "E-mail",
+    "password": "Mot de passe",
+    "confirmPassword": "Confirmer le mot de passe",
+    "createAccount": "Créer un compte",
+    "creatingAccount": "Création du compte…",
+    "signIn": "Se connecter",
+    "backToHome": "← Retour à l'accueil",
+    "alreadyHaveAccount": "Vous avez déjà un compte ?",
+    "placeholderName": "Votre nom",
+    "placeholderEmail": "vous@exemple.com",
+    "placeholderPassword": "Au moins 8 caractères",
+    "placeholderConfirm": "Répétez votre mot de passe",
+    "emailExists": "Un compte existe déjà avec cette adresse e-mail.",
+    "accountCreatedSignIn": "Compte créé. Veuillez vous connecter."
+  },
+  "signout": {
+    "signingOut": "Déconnexion en cours…"
+  },
+  "challenges": {
+    "title": "Défis communautaires",
+    "description": "Rejoignez des défis de quartier, enregistrez vos progrès et contribuez aux objectifs communautaires.",
+    "loading": "Chargement des défis…",
+    "noChallenges": "Aucun défi actif pour le moment. Revenez bientôt.",
+    "joinDefault": "Rejoignez et gagnez des points.",
+    "signInToJoin": "Se connecter pour rejoindre les défis",
+    "backToHome": "Retour à l'accueil"
+  }
+}
