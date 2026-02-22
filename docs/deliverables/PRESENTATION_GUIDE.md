@@ -29,7 +29,7 @@ The presentation must cover:
 | Problem | Waste management issue in local community |
 | Users | Target audience and needs |
 | Features | Overview of core features (dashboard, reporting, guides, challenges, noticeboard, offline, admin) |
-| User journeys | 2–3 example flows with screenshots or wireframes |
+| User journeys | 2–3 example flows with screenshots from web prototype or wireframes |
 | Design decisions | Why certain choices were made; UX principles applied |
 | Community needs | How the design addresses accessibility, engagement, behaviour change |
 | Summary | Key takeaways, success criteria met |
