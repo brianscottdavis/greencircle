@@ -1,0 +1,24 @@
+{
+  "name": "GreenCircle — Community Waste & Sustainability",
+  "short_name": "GreenCircle",
+  "description": "Understand, monitor, and improve waste management in your local community.",
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/favicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon",
+      "purpose": "any"
+    }
+  ],
+  "theme_color": "#047857",
+  "background_color": "#f0fdf4",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait"
+}

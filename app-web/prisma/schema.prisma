@@ -1,0 +1,351 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ---------------------------------------------------------------------------
+// NextAuth (required for auth)
+// ---------------------------------------------------------------------------
+
+model Account {
+  id                       String  @id @default(cuid())
+  userId                   String
+  type                     String
+  provider                 String
+  providerAccountId        String
+  refresh_token            String?
+  access_token             String?
+  expires_at               Int?
+  token_type               String?
+  scope                    String?
+  id_token                 String?
+  session_state            String?
+  refresh_token_expires_in Int?
+  user                     User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String?   @unique
+  emailVerified DateTime?
+  image         String?
+  password      String?   // Hashed password for credentials auth
+  role          String?   @default("resident") // resident | crew | ambassador | admin
+  engagementScore Int?    @default(0)
+  accounts      Account[]
+  sessions      Session[]
+
+  householdMembers     HouseholdMember[]
+  serviceRequests      ServiceRequest[]
+  reports              Report[]
+  jobAssignments       JobAssignment[]
+  challengeParticipations ChallengeParticipation[]
+  authoredAnnouncements   Announcement[]
+  uploadedAttachments    Attachment[]
+  auditLogs           AuditLog[]
+  crewMember          CrewMember?
+}
+
+// ---------------------------------------------------------------------------
+// Domain: Households & Residents (§3, ER diagram)
+// ---------------------------------------------------------------------------
+
+model Household {
+  id              String   @id @default(cuid())
+  addressLine1    String
+  suburb          String?
+  postcode        String?
+  zone            String?
+
+  members             HouseholdMember[]
+  collectionSchedules CollectionSchedule[]
+  serviceRequests      ServiceRequest[]
+}
+
+model HouseholdMember {
+  id          String   @id @default(cuid())
+  userId      String
+  householdId String
+  isPrimary   Boolean  @default(false)
+
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  household Household @relation(fields: [householdId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, householdId])
+  @@index([householdId])
+}
+
+model CollectionSchedule {
+  id          String   @id @default(cuid())
+  householdId String
+  collectionType String  // e.g. general, recycling, green
+  dayOfWeek   Int?     // 0=Sun, 1=Mon, etc.
+  frequency   String?  // weekly, fortnightly, etc.
+
+  household Household @relation(fields: [householdId], references: [id], onDelete: Cascade)
+
+  @@index([householdId])
+}
+
+// ---------------------------------------------------------------------------
+// Domain: Service Requests & Jobs (§3, §5 state machines)
+// ---------------------------------------------------------------------------
+
+model ServiceRequest {
+  id          String   @id @default(cuid())
+  householdId String
+  createdById String
+  requestType String   // BulkyPickup, Overflow, MissedService, etc.
+  status      String   @default("Submitted") // Submitted, Triaged, Scheduled, Assigned, Completed, Closed
+  description String?
+  photoUrls   String[] // JSON array of URLs
+  scheduledFor DateTime?
+
+  household Household @relation(fields: [householdId], references: [id], onDelete: Cascade)
+  createdBy User      @relation(fields: [createdById], references: [id], onDelete: Cascade)
+
+  events ServiceRequestEvent[]
+  job   Job?
+}
+
+model ServiceRequestEvent {
+  id                String   @id @default(cuid())
+  serviceRequestId  String
+  eventType         String
+  payload           String?  // JSON
+  createdAt         DateTime @default(now())
+
+  serviceRequest ServiceRequest @relation(fields: [serviceRequestId], references: [id], onDelete: Cascade)
+
+  @@index([serviceRequestId])
+}
+
+model Job {
+  id          String    @id @default(cuid())
+  serviceRequestId String? @unique
+  status      String    @default("Requested") // Requested, Scheduled, Assigned, InProgress, Completed
+  scheduledFor DateTime?
+  completedAt DateTime?
+
+  serviceRequest  ServiceRequest? @relation(fields: [serviceRequestId], references: [id], onDelete: SetNull)
+  assignments     JobAssignment[]
+  events         JobEvent[]
+}
+
+model JobAssignment {
+  id     String   @id @default(cuid())
+  jobId  String
+  userId String
+
+  job  Job  @relation(fields: [jobId], references: [id], onDelete: Cascade)
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([jobId, userId])
+  @@index([userId])
+}
+
+model JobEvent {
+  id       String   @id @default(cuid())
+  jobId    String
+  eventType String
+  payload  String?  // JSON (photos, notes, etc.)
+  createdAt DateTime @default(now())
+
+  job Job @relation(fields: [jobId], references: [id], onDelete: Cascade)
+
+  @@index([jobId])
+}
+
+// ---------------------------------------------------------------------------
+// Domain: Reports (resident-reported issues)
+// ---------------------------------------------------------------------------
+
+model Report {
+  id          String   @id @default(cuid())
+  createdById String
+  reportType  String   // Contamination, MissedPickup, Overflow, etc.
+  description String?
+  photoUrls   String[]
+  status      String   @default("Submitted")
+
+  createdBy User @relation(fields: [createdById], references: [id], onDelete: Cascade)
+
+  @@index([createdById])
+}
+
+// ---------------------------------------------------------------------------
+// Domain: Crew & Vehicles
+// ---------------------------------------------------------------------------
+
+model CrewMember {
+  id       String   @id @default(cuid())
+  userId   String   @unique
+  vehicleId String?
+
+  user   User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  vehicle Vehicle? @relation(fields: [vehicleId], references: [id], onDelete: SetNull)
+}
+
+model Vehicle {
+  id   String  @id @default(cuid())
+  name String?
+  rego String?
+
+  crewMembers CrewMember[]
+}
+
+// ---------------------------------------------------------------------------
+// Domain: Challenges & Engagement (§3)
+// ---------------------------------------------------------------------------
+
+model Challenge {
+  id          String   @id @default(cuid())
+  title       String
+  description String?
+  status      String   @default("Upcoming") // Upcoming, Active, Ended, Archived
+  startDate   DateTime?
+  endDate     DateTime?
+  points      Int?     @default(0)
+
+  participations ChallengeParticipation[]
+}
+
+model ChallengeParticipation {
+  id          String   @id @default(cuid())
+  challengeId String
+  userId      String
+  progress    Int?     @default(0)
+
+  challenge Challenge @relation(fields: [challengeId], references: [id], onDelete: Cascade)
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  events ChallengeEvent[]
+
+  @@unique([challengeId, userId])
+  @@index([userId])
+}
+
+model ChallengeEvent {
+  id       String   @id @default(cuid())
+  participationId String
+  eventType String
+  payload  String?
+  createdAt DateTime @default(now())
+
+  participation ChallengeParticipation @relation(fields: [participationId], references: [id], onDelete: Cascade)
+
+  @@index([participationId])
+}
+
+model EngagementMetric {
+  id        String   @id @default(cuid())
+  userId    String?
+  householdId String?
+  metricType String   // participationPoints, contaminationReductions, streak, etc.
+  value     Int?
+  recordedAt DateTime @default(now())
+
+  @@index([userId])
+  @@index([householdId])
+}
+
+// ---------------------------------------------------------------------------
+// Domain: Announcements & Noticeboard
+// ---------------------------------------------------------------------------
+
+model Announcement {
+  id        String   @id @default(cuid())
+  authorId  String
+  title     String
+  body      String?
+  zone      String?   // Optional targeting
+  publishedAt DateTime?
+
+  author User @relation(fields: [authorId], references: [id], onDelete: Cascade)
+
+  @@index([authorId])
+}
+
+model NoticeboardPost {
+  id        String   @id @default(cuid())
+  title     String
+  body      String?
+  createdAt DateTime @default(now())
+
+  @@index([createdAt])
+}
+
+// ---------------------------------------------------------------------------
+// Domain: Offline & Audit
+// ---------------------------------------------------------------------------
+
+model OfflineAsset {
+  id       String   @id @default(cuid())
+  assetType String  // schedule, guide, poster, etc.
+  url      String?
+  cachedAt DateTime @default(now())
+}
+
+model Attachment {
+  id         String   @id @default(cuid())
+  uploadedById String
+  url        String
+  filename   String?
+
+  uploadedBy User @relation(fields: [uploadedById], references: [id], onDelete: Cascade)
+
+  @@index([uploadedById])
+}
+
+model ActivityLog {
+  id        String   @id @default(cuid())
+  action    String
+  entityType String?
+  entityId  String?
+  payload   String?
+  createdAt DateTime @default(now())
+
+  @@index([entityType])
+  @@index([createdAt])
+}
+
+model AuditLog {
+  id       String   @id @default(cuid())
+  actorId  String
+  action   String
+  entityType String?
+  entityId  String?
+  payload   String?
+  createdAt DateTime @default(now())
+
+  actor User @relation(fields: [actorId], references: [id], onDelete: Cascade)
+
+  @@index([actorId])
+  @@index([createdAt])
+}

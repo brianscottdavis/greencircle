@@ -1,0 +1,76 @@
+
+openapi: 3.0.3
+info:
+  title: Community Waste Management API
+  version: 1.0.0
+  description: API specification for the Community Waste Platform
+servers:
+  - url: https://api.communitywaste.local
+
+paths:
+  /api/service-requests:
+    post:
+      summary: Create a service request
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                RequestType:
+                  type: string
+                Description:
+                  type: string
+      responses:
+        '200':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ServiceRequestId:
+                    type: string
+                  Status:
+                    type: string
+
+    get:
+      summary: List service requests
+      parameters:
+        - in: query
+          name: status
+          schema:
+            type: string
+        - in: query
+          name: householdId
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+
+  /api/jobs/{jobId}/complete:
+    post:
+      summary: Complete a job
+      parameters:
+        - in: path
+          name: jobId
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ProofPhotoUrls:
+                  type: array
+                  items:
+                    type: string
+                CompletionNotes:
+                  type: string
+      responses:
+        '200':
+          description: Completed
